@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Alumini_Assignment.Models.Proposal>
+
+@{
+    ViewBag.Title = "DataTable";
+}
+
+<h2>Proposal Details</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.proposalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.memberID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.overview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deadline)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.proposalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.memberID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.overview)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deadline)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.proposalID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.proposalID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.proposalID })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
